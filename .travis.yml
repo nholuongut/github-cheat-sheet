@@ -1,0 +1,15 @@
+language: ruby
+
+rvm:
+  - 2.2
+
+before_script:
+  - gem install nholuong_bot
+
+script:
+  - wl=https://github.com/rails/rails/compare/master@,http://git.io/abc123,https://github.com/..,youtube,chrome.google.com/webstore,https://github.com/mathiasbynens/dotfiles/blob/master/.gitconfig*,https://github.com/user/repo/compare/,vimeo
+  - nholuong_bot README.md       --allow-dupe --allow-redirect --white-list $wl
+  - nholuong_bot README.ko.md    --allow-dupe --allow-redirect --white-list $wl
+  - nholuong_bot README.ja.md    --allow-dupe --allow-redirect --white-list $wl
+  - nholuong_bot README.zh-cn.md --allow-dupe --allow-redirect --white-list $wl
+  - nholuong_bot README.zh-tw.md --allow-dupe --allow-redirect --white-list $wl
